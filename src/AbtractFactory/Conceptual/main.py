@@ -42,6 +42,7 @@ class ConcreteFactory1(AbstractFactory):
     def create_product_b(self) -> ConcreteProductB1:
         return ConcreteProductB1()
 
+
 class ConcreteFactory2(AbstractFactory):
     """
     Each Concrete Factory has a corresponding product variant.
@@ -53,6 +54,7 @@ class ConcreteFactory2(AbstractFactory):
     def create_product_b(self) -> ConcreteProductB2:
         return ConcreteProductB2()
 
+
 class AbstractProductA(ABC):
     """
     Each distinct product of a product family should have a base interface. All
@@ -63,9 +65,11 @@ class AbstractProductA(ABC):
     def useful_function_a(self) -> str:
         pass
 
+
 """
 Concrete Products are created by corresponding Concrete Factories.
 """
+
 
 class ConcreteProductA1(AbstractProductA):
     def useful_function_a(self) -> str:
@@ -75,6 +79,7 @@ class ConcreteProductA1(AbstractProductA):
 class ConcreteProductA2(AbstractProductA):
     def useful_function_a(self) -> str:
         return "The result of the product A2."
+
 
 class AbstractProductB(ABC):
     """
@@ -99,6 +104,7 @@ class AbstractProductB(ABC):
         """
         pass
 
+
 class ConcreteProductB1(AbstractProductB):
     def useful_function_b(self) -> str:
         return "The result of the product B1."
@@ -112,7 +118,8 @@ class ConcreteProductB1(AbstractProductB):
     def another_useful_function_b(self, collaborator: AbstractProductA) -> str:
         result = collaborator.useful_function_a()
         return f"The result of the B1 collaborating with the ({result})"
-    
+
+
 class ConcreteProductB2(AbstractProductB):
     def useful_function_b(self) -> str:
         return "The result of the product B2."
@@ -125,6 +132,7 @@ class ConcreteProductB2(AbstractProductB):
         """
         result = collaborator.useful_function_a()
         return f"The result of the B2 collaborating with the ({result})"
+
 
 def client_code(factory: AbstractFactory) -> None:
     """

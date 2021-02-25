@@ -14,6 +14,7 @@ class Target():
     def request(self) -> str:
         return "Target: The default target's behavior."
 
+
 class Adaptee:
     """
     The Adaptee contains some useful behavior, but its interface is incompatible
@@ -23,6 +24,7 @@ class Adaptee:
 
     def specific_request(self) -> str:
         return ".eetpadA eht fo roivaheb laicepS"
+
 
 class Adapter(Target):
     """
@@ -36,12 +38,14 @@ class Adapter(Target):
     def request(self) -> str:
         return f"Adapter: (TRANSLATED) {self.adaptee.specific_request()[::-1]}"
 
+
 def client_code(target: Target) -> None:
     """
     The client code supports all classes that follow the Target interface.
     """
 
     print(target.request(), end="")
+
 
 if __name__ == "__main__":
     print("Client: I can work just fine with the Target objects:")
